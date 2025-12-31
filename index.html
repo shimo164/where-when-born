@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>出生地タイムライン</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
+  </head>
+  <body>
+    <main class="page">
+      <header class="top-bar">
+        <div>
+          <h1>出生地タイムライン</h1>
+          <p class="lede">西暦カウンターに合わせて出生地に吹き出しで現れます。</p>
+        </div>
+        <div class="controls">
+          <button id="playPause" class="button primary" type="button">停止</button>
+          <button id="stepBack" class="button ghost" type="button">-1 年</button>
+          <button id="stepForward" class="button ghost" type="button">+1 年</button>
+          <label class="slider">
+            <span>手動で選択</span>
+            <input id="yearSlider" type="range" min="1945" max="1985" value="1945" step="1" />
+          </label>
+        </div>
+      </header>
+
+      <section class="map-card">
+        <div class="year-counter">
+          <div id="yearDisplay" class="value">1945</div>
+        </div>
+        <div id="map" class="map">
+          <svg id="japanBase" class="japan-outline" aria-hidden="true"></svg>
+          <div id="bubbleLayer" class="bubble-layer"></div>
+        </div>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
